@@ -9,10 +9,32 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     color: #fff;
-    background: linear-gradient(135deg, #CFB87C 0%, #000000 100%);
+    /* Remove GIF background; video will be used instead */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+}
+
+/* Fullscreen background video with overlay */
+.video-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    overflow: hidden;
+}
+
+.video-bg video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.9) contrast(1.05);
+}
+
+.bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.65));
+    z-index: 1;
 }
 
 /* Poster container */
@@ -20,6 +42,19 @@ body {
     margin-bottom: 2rem;
     display: flex;
     justify-content: center;
+}
+
+/* Smiley animation under poster */
+.smiley-anim {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    animation: bounce 1.6s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
 /* Exhibition title styles */
