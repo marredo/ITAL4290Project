@@ -9,7 +9,8 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     color: #fff;
-    /* Remove GIF background; video will be used instead */
+    /* Fallback background color for when video fails to load */
+    background-color: #2c2c2c;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
