@@ -93,6 +93,15 @@ body {
     margin: 0;
     text-align: center;
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.font-test .first-name,
+.font-test .last-name {
+    display: block;
+    line-height: 1.1;
 }
 
 .font-test h1 {
@@ -282,6 +291,7 @@ main {
     .font-test .names {
         padding: 0 2rem;
         top: 1.5rem;
+        gap: 1rem;
     }
     
     .font-test .name {
@@ -311,14 +321,14 @@ main {
 
 @media (max-width: 480px) {
     .font-test .names {
-        padding: 0 1rem;
+        padding: 0 0.5rem;
         top: 1rem;
-        flex-direction: column;
+        flex-direction: row;
         gap: 0.5rem;
     }
     
     .font-test .name {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
     
     .font-test h1 {
