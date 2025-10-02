@@ -157,6 +157,16 @@ body {
     }
 }
 
+/* Pause animations until video is ready */
+body.animations-paused .font-test .name,
+body.animations-paused .font-test h1,
+body.animations-paused .font-test .director,
+body.animations-paused .font-test .subtitle,
+body.animations-paused .font-test .course {
+    animation: none !important;
+    opacity: 0 !important;
+}
+
 @keyframes breathe {
     0%, 100% {
         opacity: 1;

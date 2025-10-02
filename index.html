@@ -6,9 +6,9 @@
     <title>ITAL 4290 - A Chiara Exhibition</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="animations-paused">
     <div class="video-bg" aria-hidden="true">
-        <video autoplay muted loop playsinline preload="auto" poster="achiara.jpg">
+        <video id="bgVideo" autoplay muted loop playsinline preload="auto" poster="achiara.jpg">
             <source src="chiaravidnew.mp4" type="video/mp4">
         </video>
         <div class="bg-overlay" aria-hidden="true"></div>
@@ -79,15 +79,33 @@
     </section>
     
     <script>
-        // Show scroll indicator after all text animations complete
-        // The last animation (course text) starts at 3.0s and lasts 1.2s, completing at 4.2s
-        // Add a small delay to ensure smooth transition
-        setTimeout(() => {
-            const scrollIndicator = document.getElementById('scrollIndicator');
-            if (scrollIndicator) {
-                scrollIndicator.classList.add('show');
-            }
-        }, 4500); // 4.5 seconds to be safe
+        // Video-synchronized animation start
+        let animationsStarted = false;
+        const video = document.getElementById('bgVideo');
+        
+        function startAnimations() {
+            if (animationsStarted) return;
+            animationsStarted = true;
+            document.body.classList.remove('animations-paused');
+            
+            // Show scroll indicator after all text animations complete
+            // The last animation (course text) starts at 3.75s and lasts 1.2s, completing at 4.95s
+            // Add a small delay to ensure smooth transition
+            setTimeout(() => {
+                const scrollIndicator = document.getElementById('scrollIndicator');
+                if (scrollIndicator) {
+                    scrollIndicator.classList.add('show');
+                }
+            }, 5200); // 5.2 seconds to be safe
+        }
+        
+        // Start animations when video is ready to play
+        if (video) {
+            video.addEventListener('canplay', startAnimations);
+        }
+        
+        // Fallback: start animations after 5 seconds even if video hasn't loaded
+        setTimeout(startAnimations, 5000);
         
         // Hide scroll indicator function
         function hideScrollIndicator() {
