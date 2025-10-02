@@ -15,11 +15,21 @@
     </div>
     <main>
         <div class="font-test">
+            <div class="names">
+                <p class="name">Michael Brouillette</p>
+                <p class="name">Garrett O'Connor</p>
+                <p class="name">Manuel Arredondo</p>
+            </div>
             <h1>A CHIARA</h1>
             <p class="subtitle">Online Exhibition</p>
             <p class="course">ITAL 4290 Final Project</p>
         </div>
     </main>
+    
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator" id="scrollIndicator">
+        <img src="down.svg" alt="Scroll down" class="scroll-arrow">
+    </div>
     
     <!-- Scrollable content section -->
     <section class="content-section">
@@ -57,6 +67,56 @@
             </div>
         </div>
     </section>
+    
+    <script>
+        // Show scroll indicator after all text animations complete
+        // The last animation (course text) starts at 3.5s and lasts 1.2s, completing at 4.7s
+        // Add a small delay to ensure smooth transition
+        setTimeout(() => {
+            const scrollIndicator = document.getElementById('scrollIndicator');
+            if (scrollIndicator) {
+                scrollIndicator.classList.add('show');
+            }
+        }, 5000); // 5 seconds to be safe
+        
+        // Hide scroll indicator function
+        function hideScrollIndicator() {
+            const scrollIndicator = document.getElementById('scrollIndicator');
+            if (scrollIndicator) {
+                scrollIndicator.classList.remove('show');
+            }
+        }
+        
+        // Add click functionality to scroll to content and hide indicator
+        document.addEventListener('DOMContentLoaded', () => {
+            const scrollIndicator = document.getElementById('scrollIndicator');
+            if (scrollIndicator) {
+                scrollIndicator.addEventListener('click', () => {
+                    const contentSection = document.querySelector('.content-section');
+                    if (contentSection) {
+                        contentSection.scrollIntoView({ 
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        // Hide indicator after clicking
+                        hideScrollIndicator();
+                    }
+                });
+            }
+            
+            // Hide indicator when user scrolls
+            let scrollTimeout;
+            window.addEventListener('scroll', () => {
+                // Clear existing timeout
+                clearTimeout(scrollTimeout);
+                
+                // Set new timeout to hide indicator after user stops scrolling
+                scrollTimeout = setTimeout(() => {
+                    hideScrollIndicator();
+                }, 100); // Small delay to ensure smooth transition
+            });
+        });
+    </script>
     
 </body>
 </html>

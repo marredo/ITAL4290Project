@@ -6,6 +6,20 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Organetto Light';
+    src: url('Organetto-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Organetto Regular';
+    src: url('Organetto-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* Reset and base styles */
 * {
     margin: 0;
@@ -56,36 +70,61 @@ body {
     text-align: center;
 }
 
-.font-test h1 {
+.font-test .names {
+    position: absolute;
+    top: 2rem;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3rem;
+    z-index: 10;
+}
+
+.font-test .name {
     font-family: 'Organetto UltraLight', Arial, sans-serif;
+    font-size: 1.2rem;
+    color: #fff;
+    font-weight: normal;
+    letter-spacing: 1px;
+    opacity: 0;
+    animation: fadeIn 1.2s ease-out 0.3s forwards;
+    margin: 0;
+    text-align: center;
+    flex: 1;
+}
+
+.font-test h1 {
+    font-family: 'Organetto Regular', Arial, sans-serif;
     font-size: 5.5rem;
     color: #fff;
     font-weight: normal;
     letter-spacing: 3px;
     opacity: 0;
-    animation: fadeIn 1.5s ease-out 0.8s forwards, breathe 4s ease-in-out 2.3s infinite;
+    animation: fadeIn 1.5s ease-out 1.2s forwards, breathe 4s ease-in-out 2.7s infinite;
     margin-bottom: 1.5rem;
 }
 
 .font-test .subtitle {
-    font-family: 'Organetto UltraLight', Arial, sans-serif;
+    font-family: 'Organetto Light', Arial, sans-serif;
     font-size: 2.2rem;
     color: #CFB87C;
     font-weight: normal;
     letter-spacing: 2px;
     opacity: 0;
-    animation: fadeIn 1.8s ease-out 2.5s forwards;
+    animation: fadeIn 1.2s ease-out 2.2s forwards;
     margin-bottom: 1rem;
 }
 
 .font-test .course {
-    font-family: 'Organetto UltraLight', Arial, sans-serif;
+    font-family: 'Organetto Light', Arial, sans-serif;
     font-size: 1.8rem;
     color: #CFB87C;
     font-weight: normal;
     letter-spacing: 2px;
     opacity: 0;
-    animation: fadeIn 2s ease-out 4.5s forwards;
+    animation: fadeIn 1.2s ease-out 3.5s forwards;
     margin-bottom: 0;
 }
 
@@ -106,6 +145,47 @@ body {
     50% {
         opacity: 0.85;
         transform: scale(1.02);
+    }
+}
+
+/* Scroll indicator styles */
+.scroll-indicator {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    pointer-events: none;
+}
+
+.scroll-indicator.show {
+    opacity: 1;
+}
+
+.scroll-arrow {
+    width: 3rem;
+    height: 3rem;
+    filter: invert(1) brightness(0.8);
+    animation: pulse 2s ease-in-out infinite;
+    cursor: pointer;
+    pointer-events: auto;
+    transition: transform 0.3s ease;
+}
+
+.scroll-arrow:hover {
+    transform: scale(1.1);
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
     }
 }
 
@@ -199,6 +279,15 @@ main {
 
 /* Responsive design */
 @media (max-width: 768px) {
+    .font-test .names {
+        padding: 0 2rem;
+        top: 1.5rem;
+    }
+    
+    .font-test .name {
+        font-size: 1rem;
+    }
+    
     .font-test h1 {
         font-size: 4rem;
         letter-spacing: 2px;
@@ -213,9 +302,25 @@ main {
         font-size: 1.4rem;
         letter-spacing: 1px;
     }
+    
+    .scroll-arrow {
+        width: 2.2rem;
+        height: 2.2rem;
+    }
 }
 
 @media (max-width: 480px) {
+    .font-test .names {
+        padding: 0 1rem;
+        top: 1rem;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .font-test .name {
+        font-size: 0.9rem;
+    }
+    
     .font-test h1 {
         font-size: 3.2rem;
         letter-spacing: 1px;
@@ -229,6 +334,15 @@ main {
     .font-test .course {
         font-size: 1.2rem;
         letter-spacing: 1px;
+    }
+    
+    .scroll-indicator {
+        bottom: 1.5rem;
+    }
+    
+    .scroll-arrow {
+        width: 1.8rem;
+        height: 1.8rem;
     }
 }
 
