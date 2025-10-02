@@ -112,7 +112,18 @@ body {
     letter-spacing: 3px;
     opacity: 0;
     animation: fadeIn 1.5s ease-out 1.2s forwards, breathe 4s ease-in-out 2.7s infinite;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0;
+}
+
+.font-test .director {
+    font-family: 'Organetto Light', Arial, sans-serif;
+    font-size: 1.4rem;
+    color: #fff;
+    font-weight: normal;
+    letter-spacing: 1px;
+    opacity: 0;
+    animation: fadeIn 1.2s ease-out 1.8s forwards;
+    margin: -0.5rem 0 1rem 0;
 }
 
 .font-test .subtitle {
@@ -122,8 +133,8 @@ body {
     font-weight: normal;
     letter-spacing: 2px;
     opacity: 0;
-    animation: fadeIn 1.2s ease-out 2.2s forwards;
-    margin-bottom: 1rem;
+    animation: fadeIn 1.2s ease-out 3.15s forwards;
+    margin: 2.5rem 0 1rem 0;
 }
 
 .font-test .course {
@@ -133,7 +144,7 @@ body {
     font-weight: normal;
     letter-spacing: 2px;
     opacity: 0;
-    animation: fadeIn 1.2s ease-out 3.5s forwards;
+    animation: fadeIn 1.2s ease-out 3.75s forwards;
     margin-bottom: 0;
 }
 
@@ -308,6 +319,11 @@ main {
         letter-spacing: 1px;
     }
     
+    .font-test .director {
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+    }
+    
     .font-test .course {
         font-size: 1.4rem;
         letter-spacing: 1px;
@@ -338,6 +354,11 @@ main {
     
     .font-test .subtitle {
         font-size: 1.5rem;
+        letter-spacing: 1px;
+    }
+    
+    .font-test .director {
+        font-size: 1rem;
         letter-spacing: 1px;
     }
     

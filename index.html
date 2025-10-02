@@ -30,6 +30,7 @@
                 </div>
             </div>
             <h1>A CHIARA</h1>
+            <p class="director">DIRECTED BY JONAS CARPIGNANO</p>
             <p class="subtitle">Online Exhibition</p>
             <p class="course">ITAL 4290 Final Project</p>
         </div>
@@ -79,14 +80,14 @@
     
     <script>
         // Show scroll indicator after all text animations complete
-        // The last animation (course text) starts at 3.5s and lasts 1.2s, completing at 4.7s
+        // The last animation (course text) starts at 3.0s and lasts 1.2s, completing at 4.2s
         // Add a small delay to ensure smooth transition
         setTimeout(() => {
             const scrollIndicator = document.getElementById('scrollIndicator');
             if (scrollIndicator) {
                 scrollIndicator.classList.add('show');
             }
-        }, 5000); // 5 seconds to be safe
+        }, 4500); // 4.5 seconds to be safe
         
         // Hide scroll indicator function
         function hideScrollIndicator() {
